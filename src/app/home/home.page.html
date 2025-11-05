@@ -1,20 +1,24 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="success">
     <ion-title>
-      Blank
+      <ion-title>Bienvenido {{ user }}</ion-title>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <h2>Libros disponibles</h2>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <mat-card *ngFor="let libro of libros" class="mat-elevation-z4">
+    <mat-card-header>
+      <mat-card-title>{{ libro.nombre }}</mat-card-title>
+      <mat-card-subtitle>{{ libro.autor }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p>{{ libro.descripcion }}</p>
+      <p><strong>Categoría:</strong> {{ libro.categoria }}</p>
+      <p><strong>Precio:</strong> {{ libro.precio | currency:'CLP':'symbol':'1.0-0' }}</p>
+    </mat-card-content>
+  </mat-card>
 </ion-content>
