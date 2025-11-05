@@ -25,3 +25,22 @@
 #container a {
   text-decoration: none;
 }
+
+/*Estilo genral para tarjetas (matCard)*/
+mat-card {
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border: 2xp solid #007bff; /*borde*/
+  background-color: rgb(130, 238, 218); /*color de fondo*/
+  color:#333;
+}
+
+mat-card {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+mat-card {
+  margin: 0.2rem 0;
+}
