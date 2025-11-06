@@ -30,7 +30,7 @@ export class LoginPage  {
 
 //función para validar el formato del email
 validarEmail(email: string): boolean {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; //Expresión para validar email
+  const emailRegex = /^[a-zA-Z0-9]{3,8}$/; //Expresión para validar email
   return emailRegex.test(email);
 }
 
@@ -54,7 +54,7 @@ validarEmail(email: string): boolean {
     }
 
     //Verificar que la contraseña tenga máximo 4 caracteres 
-    if(this.password.length < 6) {
+    if(this.password.length < 4) {
       this.mostrarAlerta('El campo de contraseña debe tener minimo 6 caracteres.');
       return;
     }

@@ -26,19 +26,38 @@
   text-decoration: none;
 }
 
-/*Estilo genral para tarjetas (matCard)*/
+h2 {
+  text-align: center;
+  margin-top: 12px;
+  color: #edf2f2;
+  font-weight: 600;
+}
+
+
+/*Estilo general para tarjetas (matCard)*/
 mat-card {
   margin-bottom: 1rem;
-  border-radius: 10px;
+  border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   border: 2xp solid #007bff; /*borde*/
   background-color: rgb(130, 238, 218); /*color de fondo*/
   color:#333;
 }
 
+mat-card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0f172a;
+  text-transform: uppercase;
+  /* Mayúsculas */
+  letter-spacing: 0.5px;
+  /* Espacio entre letras */
+  margin-bottom: 4px;
+}
+
 mat-card {
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 mat-card {
