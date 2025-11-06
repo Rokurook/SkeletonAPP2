@@ -6,7 +6,7 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { MatCardModule } from '@Angular/material/card';
-
+import { CompanyLibreriaComponent } from '../company-libreria/company-libreria.component';
 
 @NgModule({
   imports: [
@@ -14,7 +14,8 @@ import { MatCardModule } from '@Angular/material/card';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    MatCardModule
+    MatCardModule,
+    CompanyLibreriaComponent 
   ],
   declarations: [HomePage]
 })

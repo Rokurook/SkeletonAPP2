@@ -59,3 +59,10 @@ mat-card-title {
   border-radius: 50%; /* Hace la imagen circular */
 }
 
+ion-title {
+  margin: 0;
+  padding: 0;
+  font-size: 1.1rem;
+  /* Tamaño de texto más pequeño */
+  line-height: 1.2;
+}

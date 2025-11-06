@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MenuController } from '@ionic/angular';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +9,13 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class AppComponent {
-  constructor() {}
+  constructor(private menu: MenuController, private router: Router) {}
+
+  cerrarSesion(){
+    console.log('Sesión cerrada');
+    this.menu.close('mainMenu'); //cierre menú 
+    this.router.navigate(['/login'])
+  }
+
+
 }

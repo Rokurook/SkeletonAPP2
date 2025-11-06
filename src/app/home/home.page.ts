@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { MenuController} from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
 
 //creamos interfaz libro
 interface Libro {
@@ -17,15 +17,17 @@ interface Libro {
 
 @Component({
   selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss'],
   standalone: false,
 })
-export class HomePage {
 
-  user: string = ''; //creamos arreglo usuario/resivimos el usuario que envio login 
 
-  
+export class HomePage  implements OnInit {
+  email: string= '';
+  password: string= '';
+  user: string = ''; //creamos arreglo usuario/resivimos el usuario que envio login
+  bienvenidos: string= '';
 
   libros: Libro[] = [
   { nombre: 'El Principito', imagen: 'assets/img/principe.png', descripcion: 'Historia sobre la inocencia y la sabiduría infantil.', autor: 'Antoine de Saint-Exupéry', categoria: 'Fábula', precio: 8900 },
@@ -51,10 +53,21 @@ export class HomePage {
 ];
 
 
-  //constante recibe el usuario la pagina loogin 
-    constructor(private router:ActivatedRoute,private menu: MenuController) {
-      const nav = history.state;
-      this.user = nav.user || 'Invitado'; 
-    }
+ //constante recibe el usuario la pagina loogin 
+  constructor(private router:ActivatedRoute,private menu: MenuController) {
+    const nav = history.state;
+    this.user = nav.user || 'Invitado'; 
+  }
+
+
+  ngOnInit(){
+    this.menu.close("mainMenu");
+
+    //obtenre los parametro de la Url
+    this.router.queryParams.subscribe(params => {
+      this.email = params['email'];
+      this.password = params['password'];
+    });
+  }
 
 }
