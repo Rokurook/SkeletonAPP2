@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router'; //comunicar pagina con otra / incluir constructor como atributo privado 
 
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -30,9 +32,10 @@ export class LoginPage  {
 
 //función para validar el formato del email
 validarEmail(email: string): boolean {
-  const emailRegex = /^[a-zA-Z0-9]{3,8}$/; //Expresión para validar email
+  const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/; // Expresión para validar email
   return emailRegex.test(email);
 }
+
 
   login(){
     //verificar que campo de correo no esté vacio
@@ -54,13 +57,19 @@ validarEmail(email: string): boolean {
     }
 
     //Verificar que la contraseña tenga máximo 4 caracteres 
-    if(this.password.length < 4) {
-      this.mostrarAlerta('El campo de contraseña debe tener minimo 6 caracteres.');
+    if((this.password.length < 3) && (this.password.length > 8)) {
+      this.mostrarAlerta('El campo de contraseña debe tener 3 a 8 caracteres');
       return;
     }
 
     //si todas las validadciones son correctas, navega a la pagina "home"
     this.router.navigate(['/home'],{ state:{ user: this.email}});
+  }
+
+
+  registro()
+  {
+    this.router.navigate(['/registro']);
   }
 
 }

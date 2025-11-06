@@ -1,29 +1,35 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="success">
+      <!--<app-company-libreria [companylibreria]="Mi Libreria App"></app-company-libreria>-->
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
       <!--<ion-back-button></ion-back-button>-->
     </ion-buttons>
 
     <ion-title>
+      <img src="../../../assets/img/usuario.png" alt="Avatar de usuario" class="user-avatar" />
       Bienvenido {{ user }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <h2>Libros disponibles</h2>
 
-  <mat-card *ngFor="let libro of libros" class="mat-elevation-z4">
-    <mat-card-header>
-      <mat-card-title>{{ libro.nombre }}</mat-card-title>
-      <mat-card-subtitle>{{ libro.autor }}</mat-card-subtitle>
-    </mat-card-header>
+<ion-content>
+  <mat-card *ngFor="let libro of libros" class="mat-elevation-z4 libro-card">
+    <div class="libro-contenedor">
+      <!-- Información del libro (izquierda) -->
+      <div class="libro-info">
+        <mat-card-title>{{ libro.nombre }}</mat-card-title>
+        <mat-card-subtitle>{{ libro.autor }}</mat-card-subtitle>
+        <p>{{ libro.descripcion }}</p>
+        <p><strong>Categoría:</strong> {{ libro.categoria }}</p>
+        <p><strong>Precio:</strong> {{ libro.precio | currency:'CLP':'symbol':'1.0-0' }}</p>
+      </div>
 
-    <mat-card-content>
-      <p>{{ libro.descripcion }}</p>
-      <p><strong>Categoría:</strong> {{ libro.categoria }}</p>
-      <p><strong>Precio:</strong> {{ libro.precio | currency:'CLP':'symbol':'1.0-0' }}</p>
-    </mat-card-content>
+      <!-- Imagen del libro (derecha) -->
+      <div class="libro-imagen-container">
+        <img [src]="libro.imagen" alt="" class="libro-imagen" />
+      </div>
+    </div>
   </mat-card>
 </ion-content>

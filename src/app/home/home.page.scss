@@ -1,37 +1,4 @@
-#container {
-  text-align: center;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
-
-h2 {
-  text-align: center;
-  margin-top: 12px;
-  color: #edf2f2;
-  font-weight: 600;
-}
 
 
 /*Estilo general para tarjetas (matCard)*/
@@ -44,22 +11,51 @@ mat-card {
   color:#333;
 }
 
+
 mat-card-title {
   font-size: 1.4rem;
   font-weight: 700;
   color: #0f172a;
-  text-transform: uppercase;
-  /* Mayúsculas */
-  letter-spacing: 0.5px;
-  /* Espacio entre letras */
+  text-transform: uppercase;/* Mayúsculas */
+  letter-spacing: 0.5px;/* Espacio entre letras */
   margin-bottom: 4px;
 }
 
-mat-card {
-  font-weight: bold;
-  font-size: 1rem;
+.libro-contenedor {
+  display: flex;
+  justify-content: space-between;/* Texto a la izquierda, imagen a la derecha */
+  align-items: center;
+  gap: 16px;
 }
 
-mat-card {
-  margin: 0.2rem 0;
+.libro-info {
+  flex: 1;/* Ocupa todo el espacio disponible */
+  text-align: left;
 }
+
+.libro-imagen-container {
+  flex-shrink: 0;/* Evita que la imagen se reduzca */
+}
+
+.libro-imagen {
+  float: rigth;/* coloca la imagen a la derecha */
+  width: 100px;/*ajusta tamaño*/
+  height: auto;
+  margin-left: 0px;/* espacio entre texto e imagen */
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;/* Centra todo horizontalmente */
+  gap: 10px;/* Espacio entre la imagen y el texto */
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* Hace la imagen circular */
+}
+

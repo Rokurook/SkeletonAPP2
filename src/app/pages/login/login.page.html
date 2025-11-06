@@ -28,10 +28,14 @@
         <ion-input [(ngModel)]="password" type="password"></ion-input>
         </ion-item>
 
-        <ion-button expand="block" (click)="login()">Iniciar Sesión</ion-button>
+        <!--Boton login-->
+        <ion-button expand="block" (click)="login()" class="login-button">Ingreso</ion-button>
 
-      
+        <ion-button expand="block" (click)="registro()" fill="clear" calss="resgister-button">Registro</ion-button>
       </ion-card-content>
+
+      <ion-text class="forgot-password" color="medium">
+        <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a></ion-text>
 
 
 </ion-card>
