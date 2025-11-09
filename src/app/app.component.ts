@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MenuController } from '@ionic/angular';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +10,12 @@ import { Route, Router } from '@angular/router';
 })
 export class AppComponent {
   constructor(private menu: MenuController, private router: Router) {}
+
+async goToHome() {
+  await this.menu.close(); // o await this.menu.close('mainMenu')
+  // ahora navega
+  await this.router.navigate(['/home']);
+}
 
   cerrarSesion(){
     console.log('Sesión cerrada');

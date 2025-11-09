@@ -1,4 +1,13 @@
 
+.titulo-libreria {
+    font-size: 32px;
+    font-weight: bold;
+    color: #f0f1f5;
+    text-align: center;
+}
+
+
+
 ion-content {
     --background: none;
     /* Elimina cualquier fondo global */
@@ -29,7 +38,6 @@ ion-content {
         transform: scale(0.5); /*Zoom leve*/
     }
 }
-
 
 
 ion-card {
@@ -76,6 +84,11 @@ ion-button:hover {
     display: block;
     text-align: center;
     margin-top: 1rem;
+a {
+        color: rgb(0, 1, 1);
+        text-decoration: none;
+     }
+
 }
 
 .forgot-link {
@@ -84,8 +97,16 @@ ion-button:hover {
     font-size: 0.9rem;
 }
 
-.forgot-link:hover {
-    text-decoration: #f9f6f6;
-    color: #111011; /* color al pasar el mouse */
+
+
+.logo2-container {
+    display: flex;
+    justify-content: flex-start;
+    margin:60px; /* Separa del texto anterior */
+    margin-bottom: 50px;
 }
 
+logo2-container img {
+    width:10px; /*tamaño imagen */
+    height: auto; /* Mantiene proporción */
+}

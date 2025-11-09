@@ -1,13 +1,18 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="success">
-      <!--<app-company-libreria [companylibreria]="Mi Libreria App"></app-company-libreria>-->
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-      <!--<ion-back-button></ion-back-button>-->
-    </ion-buttons>
+  <ion-toolbar>
+    <!-- Componente con el nombre de la app -->
+    <app-company-name [companyname]="'Mi Librería App'"></app-company-name>
 
+    <!-- Botones en el lado derecho del toolbar -->
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+      <!-- <ion-back-button></ion-back-button> -->
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-toolbar>
     <ion-title>
-    <img src="../../../assets/img/usuario.png" alt="Avatar de usuario" class="user-avatar" />
+      <img src="../../../assets/img/usuario.png" alt="Avatar de usuario" class="user-avatar" />
       Bienvenido {{ user }}
     </ion-title>
   </ion-toolbar>

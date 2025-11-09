@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
-import { Router } from '@angular/router'; //comunicar pagina con otra / incluir constructor como atributo privado 
 
 
 
@@ -15,9 +15,8 @@ export class LoginPage  {
   email:string = '';
   password: string='';
 
-  constructor(private alertController: AlertController,
-              private router: Router
-  ) { }
+    constructor(private navCtrl: NavController, private alertController: AlertController) { }
+
 
   //funsión necesita libreria / ademas de definir como objeto privado dentro del contructor / Método para mostrar alerta de error
   async mostrarAlerta(mensaje: string){
@@ -63,13 +62,17 @@ validarEmail(email: string): boolean {
     }
 
     //si todas las validadciones son correctas, navega a la pagina "home"
-    this.router.navigate(['/home'],{ state:{ user: this.email}});
-  }
+    this.navCtrl.navigateForward(['/home'], {
+        queryParams: {
+          email: this.email 
+        }
+      });
 
-
-  registro()
-  {
-    this.router.navigate(['/registro']);
+}
+  registro() {
+   this.navCtrl.navigateForward(['/registro']);
   }
 
 }
+
+ 

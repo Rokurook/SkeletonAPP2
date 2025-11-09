@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AngularDelegate, IonicModule } from '@ionic/angular';
+import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-import { MatCardModule } from '@Angular/material/card';
-import { CompanyLibreriaComponent } from '../company-libreria/company-libreria.component';
+import { CompanyNameComponent } from '../company-name/company-name.component';
 
 @NgModule({
   imports: [
@@ -14,8 +13,7 @@ import { CompanyLibreriaComponent } from '../company-libreria/company-libreria.c
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    MatCardModule,
-    CompanyLibreriaComponent 
+    CompanyNameComponent
   ],
   declarations: [HomePage]
 })

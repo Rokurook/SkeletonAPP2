@@ -8,7 +8,7 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-item routerLink="/home" routerDirection="root">
+        <ion-item button (click)="goToHome()">
           <ion-icon name="home-outline" slot="start"></ion-icon>
           <ion-label>Home</ion-label>
         </ion-item>
@@ -18,6 +18,13 @@
           <ion-icon name="person-add-outline" slot="start"></ion-icon>
           <ion-label>Mi perfil</ion-label>
         </ion-item>
+
+        <!-- producto -->
+        <ion-item routerLink="/tab " routerDirection="root">
+          <ion-icon name="book-outline" slot="start"></ion-icon>
+          <ion-label>Producto</ion-label>
+        </ion-item>
+
 
         <!--pago-->
         <ion-item routerLink="/pago" routerDirection="root">
