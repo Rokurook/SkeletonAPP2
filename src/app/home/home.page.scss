@@ -1,68 +1,85 @@
+#container {
+  text-align: center;
 
-
-
-/*Estilo general para tarjetas (matCard)*/
-mat-card {
-  margin-bottom: 1rem;
-  border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  border: 2xp solid #007bff; /*borde*/
-  background-color: rgb(130, 238, 218); /*color de fondo*/
-  color:#333;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-
-mat-card-title {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #0f172a;
-  text-transform: uppercase;/* Mayúsculas */
-  letter-spacing: 0.5px;/* Espacio entre letras */
-  margin-bottom: 4px;
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
 }
 
-.libro-contenedor {
-  display: flex;
-  justify-content: space-between;/* Texto a la izquierda, imagen a la derecha */
-  align-items: center;
-  gap: 16px;
-}
-
-.libro-info {
-  flex: 1;/* Ocupa todo el espacio disponible */
-  text-align: left;
-}
-
-.libro-imagen-container {
-  flex-shrink: 0;/* Evita que la imagen se reduzca */
-}
-
-.libro-imagen {
-  float: rigth;/* coloca la imagen a la derecha */
-  width: 100px;/*ajusta tamaño*/
-  height: auto;
-  margin-left: 0px;/* espacio entre texto e imagen */
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-}
-
-.header-content {
+.user-info {
   display: flex;
   align-items: center;
-  justify-content: flex-start;/* Centra todo horizontalmente */
-  gap: 10px;/* Espacio entre la imagen y el texto */
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.user-info h2 {
+  font-size: 2em;
+  color: rgba(110, 5, 5, 0.8); /* color texto  */
 }
 
 .user-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%; /* Hace la imagen circular */
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
 }
 
+h2 {
+  text-align: left;
+  font-size: 1.5em;
+  color: #111110;
+}
+/* Borar la linea y matener registro - menu <- en negro  */
+ion-header,
+ion-toolbar {
+  --background: transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Cambiar color de los íconos del toolbar (menú y back button) */
+ion-toolbar ion-buttons ion-menu-button,
+ion-toolbar ion-buttons ion-back-button {
+  --color: #000000;
+  /* Negro */
+  color: #000000;
+  /* Asegura compatibilidad */
+}
+
+/* Opcional: color del título */
 ion-title {
-  margin: 0;
-  padding: 0;
-  font-size: 1.1rem;
-  /* Tamaño de texto más pequeño */
-  line-height: 1.2;
+  color: #000000;
+  /* Negro */
+  font-weight: bold;
+}
+
+
+ion-toolbar {
+  --background: #f8f4ef;
+  --color: #4a3f35;
+  border: none;
+}
+
+ion-header::after {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+ion-card {
+  background-color: rgba(60, 127, 136, 0.5);
+  /* Opcional: agrega un efecto de desenfoque detrás */
+  box-shadow: none;
+  border-radius: 5%;
+  margin: 10% auto;
+  width: 80%;
+  color: floralwhite;
 }

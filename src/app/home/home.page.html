@@ -1,41 +1,65 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <!-- Componente con el nombre de la app -->
-    <app-company-name [companyname]="'Mi Librería App'"></app-company-name>
-
-    <!-- Botones en el lado derecho del toolbar -->
-    <ion-buttons slot="end">
-      <ion-menu-button></ion-menu-button>
-      <!-- <ion-back-button></ion-back-button> -->
+    <!-- <app-company-name [companyName]="'Mi Librería App'"></app-company-name> -->
+    <ion-buttons slot="start">
+    <ion-back-button defaultHref="/login"></ion-back-button>
     </ion-buttons>
-  </ion-toolbar>
 
-  <ion-toolbar>
-    <ion-title>
-      <img src="../../../assets/img/usuario.png" alt="Avatar de usuario" class="user-avatar" />
-      Bienvenido {{ user }}
-    </ion-title>
+
+    <!-- Botón de menú alineado a la derecha -->
+    <ion-buttons slot="end">
+      <ion-menu-button menu="mainMenu"></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-  <h2>¡Libros disponibles!</h2>
 
-<ion-content>
-  <mat-card *ngFor="let libro of libros" class="mat-elevation-z4 libro-card">
-    <div class="libro-contenedor">
-      <!-- Información del libro (izquierda) -->
-      <div class="libro-info">
-        <mat-card-title>{{ libro.nombre }}</mat-card-title>
-        <mat-card-subtitle>{{ libro.autor }}</mat-card-subtitle>
-        <p>{{ libro.descripcion }}</p>
-        <p><strong>Categoría:</strong> {{ libro.categoria }}</p>
-        <p><strong>Precio:</strong> {{ libro.precio | currency:'CLP':'symbol':'1.0-0' }}</p>
-      </div>
 
-      <!-- Imagen del libro (derecha) -->
-      <div class="libro-imagen-container">
-        <img [src]="libro.imagen" alt="" class="libro-imagen" />
-      </div>
-    </div>
-  </mat-card>
+<ion-content [fullscreen]="true">
+
+<!-- Imagen de usuario y mensaje de bienvenida -->
+<div class="user-info">
+  <img src="../../assets/img/usuario.png" alt="User Avatar" class="user-avatar" />
+  <h2><strong>{{ bienvenidos }}</strong><br /> {{ email }}</h2>
+
+</div>
+
+<h2>¡Libros y sagas disponibles!</h2>
+
+<!--libros / sagas-->
+<ion-card>
+  <img src="../assets/img/saga1.jpg" alt="saga" />
+  <ion-card-header>
+    <ion-card-title>Harry Potter</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    Harry Potter es una saga escrita por J.K. Rowling que sigue la vida de un niño huérfano que descubre que es un mago. A
+    los 11 años recibe una carta para estudiar en el Colegio Hogwarts de Magia y Hechicería, donde hace amigos como Ron
+    Weasley y Hermione Granger.
+  </ion-card-content>
+</ion-card>
+
+<ion-card>
+  <img src="../assets/img/saga2.png" alt="saga" />
+  <ion-card-header>
+    <ion-card-title>Libros varios</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    Después de sobrevivir al tren Blaine el Mono, Roland Deschain y su grupo (Eddie, Susannah, Jake y Oy) continúan su viaje
+    hacia la Torre Oscura. Durante una pausa en el camino, Roland les cuenta la historia de su juventud en Mejís, donde
+    conoció a Susan Delgado, su primer y gran amor.
+  </ion-card-content>
+</ion-card>
+
+<ion-card>
+  <img src="../assets/img/saga3.jpg" alt="saga" />
+  <ion-card-header>
+    <ion-card-title>Juegos del hambre</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    Los Juegos del Hambre, escrita por Suzanne Collins, cuenta la historia de Katniss Everdeen, una chica del Distrito 12
+    que vive en un país llamado Panem, gobernado por un régimen opresivo.
+  </ion-card-content>
+</ion-card>
+
 </ion-content>

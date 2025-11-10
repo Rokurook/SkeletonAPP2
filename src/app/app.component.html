@@ -1,11 +1,12 @@
 <ion-app>
 
-  <ion-menu contentId="main-content">
-    <ion-header>
-      <ion-toolbar color="success">
-        <ion-title>Menú</ion-title>
-      </ion-toolbar>
-    </ion-header>
+    <ion-menu side="start" menuId="mainMenu" contentId="main-content">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Menú</ion-title>
+        </ion-toolbar>
+      </ion-header>
+
     <ion-content>
       <ion-list>
         <ion-item button (click)="goToHome()">
@@ -14,30 +15,23 @@
         </ion-item>
 
         <!--registro-->
-        <ion-item routerLink="/registro" routerDirection="root">
+        <ion-item button (click)="goToRegistro()">
           <ion-icon name="person-add-outline" slot="start"></ion-icon>
           <ion-label>Mi perfil</ion-label>
         </ion-item>
 
         <!-- producto -->
-        <ion-item routerLink="/tab " routerDirection="root">
+        <ion-item routerLink="/tabs/productos" routerDirection="root">
           <ion-icon name="book-outline" slot="start"></ion-icon>
-          <ion-label>Producto</ion-label>
+          <ion-label>Productos</ion-label>
         </ion-item>
 
-
-        <!--pago-->
-        <ion-item routerLink="/pago" routerDirection="root">
-          <ion-icon name="card-outline" slot="start"></ion-icon>
-          <ion-label>Pago por compra</ion-label>
-        </ion-item>
 
         <!--cierre sesion-->
-        <ion-item routerLink="/cerrarSesion" routerDirection="root">
+        <ion-item button (click)="cerrarSesion()">
           <ion-icon name="log-out-outline" slot="start"></ion-icon>
-          <ion-label>Cierre sesión</ion-label>
+          <ion-label>Cerrar sesión</ion-label>
         </ion-item>
-
       </ion-list>
     </ion-content>
   </ion-menu>

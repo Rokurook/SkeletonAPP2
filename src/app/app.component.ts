@@ -17,6 +17,12 @@ async goToHome() {
   await this.router.navigate(['/home']);
 }
 
+async goToRegistro() {
+  await this.menu.close(); // o await this.menu.close('mainMenu')
+  // ahora navega
+  await this.router.navigate(['/registro']);
+}
+
   cerrarSesion(){
     console.log('Sesión cerrada');
     this.menu.close('mainMenu'); //cierre menú 
