@@ -23,6 +23,12 @@ async goToRegistro() {
   await this.router.navigate(['/registro']);
 }
 
+async goToPago() {
+  await this.menu.close(); // o await this.menu.close('mainMenu')
+  // ahora navega
+  await this.router.navigate(['/pago']);
+}
+
   cerrarSesion(){
     console.log('Sesión cerrada');
     this.menu.close('mainMenu'); //cierre menú 

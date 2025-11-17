@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { PagoPageRoutingModule } from './pago-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { PagoPage } from './pago.page';
 
@@ -13,7 +14,8 @@ import { PagoPage } from './pago.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    PagoPageRoutingModule
+    PagoPageRoutingModule,
+    ReactiveFormsModule, 
   ],
   declarations: [PagoPage]
 })
