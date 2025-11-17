@@ -61,6 +61,10 @@ validarEmail(email: string): boolean {
       return;
     }
 
+    //si todas la validaciones son correctas 
+    localStorage.setItem('usuarioActivo','true'); //<--simular sesion iniciada
+
+
     //si todas las validadciones son correctas, navega a la pagina "home"
     this.navCtrl.navigateForward(['/home'], {
         queryParams: {

@@ -23,6 +23,13 @@ async goToRegistro() {
   await this.router.navigate(['/registro']);
 }
 
+
+async goToTabsProductos() {
+  await this.menu.close(); // o await this.menu.close('mainMenu')
+  // ahora navega
+  await this.router.navigate(['/tabs/productos']);
+}
+
 async goToPago() {
   await this.menu.close(); // o await this.menu.close('mainMenu')
   // ahora navega
@@ -30,6 +37,7 @@ async goToPago() {
 }
 
   cerrarSesion(){
+    localStorage.removeItem('usuarioActivo');
     console.log('Sesión cerrada');
     this.menu.close('mainMenu'); //cierre menú 
     this.router.navigate(['/login'])

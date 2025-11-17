@@ -21,10 +21,11 @@
         </ion-item>
 
         <!-- producto -->
-        <ion-item routerLink="/tabs/productos" routerDirection="root">
+        <ion-item button (click)="goToTabsProductos()">
           <ion-icon name="book-outline" slot="start"></ion-icon>
           <ion-label>Productos</ion-label>
         </ion-item>
+
 
         <!-- pago producto -->
         <ion-item button (click)="goToPago()">
