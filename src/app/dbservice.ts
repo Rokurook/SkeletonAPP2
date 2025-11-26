@@ -50,7 +50,20 @@ export class Dbservice {
 }
 
 
-//funsion insertar al uausrio 
+//validar usuario 
+validarUsuario( usuario: string, password: string) {
+  return this.db.executeSql('SELECT * FROM usuario Where usuario = ? AND password = ?', [ usuario, password])
+    .then((res) => {
+      if (res.row.length > 0){
+        return res.row.items(0);// retorna primer usuario que cooincide 
+      } else {
+        return null; //Retorna nuññ si no encomtro nigun usuario
+      }
+    })
+    .catch(error => this.presentToast('Error al obtener usuario por credenciales:'+ error));
+}
+
+//funsion insertar al usuario 
   insertUsuario(nombre: string, apellido: string, usuario: string, password: string, selectedOption: string, selectedDate: string,){
     return this.db.executeSql(`
       INSERT INTO usuario (nombre, apellido, usuario, password, nivel_de_estudios, fecha_nacimiento) VALUES (?, ?, ?, ?, ?, ?);
