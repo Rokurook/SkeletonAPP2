@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
-
+import { Dataservice } from '../../services/dataservice';
 
 
 @Component({
@@ -15,7 +15,7 @@ export class LoginPage  {
   email:string = '';
   password: string='';
 
-    constructor(private navCtrl: NavController, private alertController: AlertController) { }
+    constructor(private navCtrl: NavController, private alertController: AlertController, private dataService: Dataservice) { }
 
 
   //funsión necesita libreria / ademas de definir como objeto privado dentro del contructor / Método para mostrar alerta de error
@@ -36,7 +36,7 @@ validarEmail(email: string): boolean {
 }
 
 
-  login(){
+  async login(){
     //verificar que campo de correo no esté vacio
     if (!this.email){
       this.mostrarAlerta('El campo de correo no puede estar vacio.');
@@ -61,22 +61,44 @@ validarEmail(email: string): boolean {
       return;
     }
 
-    //si todas la validaciones son correctas 
+    //si todas la validaciones son correctas
+    /*
     localStorage.setItem('usuarioActivo','true'); //<--simular sesion iniciada
-
-
     //si todas las validadciones son correctas, navega a la pagina "home"
     this.navCtrl.navigateForward(['/home'], {
         queryParams: {
           email: this.email 
         }
+      });*/
+
+      // Si esta el registro en la base de datos ahi redireccionamos alhome
+
+  
+      const logged = await this.dataService.validarUsuario(this.email, this.password);
+      if (logged) {
+        // Usuario válido, realizar acciones de inicio de sesión
+        
+        localStorage.setItem('sesion_iniciada','true') 
+        this.navCtrl.navigateForward(['/home'], {
+        queryParams: {
+          email: this.email 
+        }
+
       });
+      } else {
+        // Usuario inválido, mostrar mensaje de error
+        this.mostrarAlerta('No existe el usuario en la base datos');
+      }
+  
 
 }
+
+    // despues
   registro() {
-   this.navCtrl.navigateForward(['/registro']);
+     this.navCtrl.navigateForward(['/registro']);
   }
 
 }
+
 
  
