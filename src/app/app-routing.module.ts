@@ -20,7 +20,6 @@ const routes: Routes = [
   {
     path: 'registro',
     loadChildren: () => import('./pages/registro/registro.module').then( m => m.RegistroPageModule),
-    //canActivate:[AuthGuard]  //para protecger las paginas//
   },
   {
     path: 'tabs',
@@ -32,7 +31,16 @@ const routes: Routes = [
     loadChildren: () => import('./pago/pago.module').then( m => m.PagoPageModule),
     canActivate:[AuthGuard]  //para protecger las paginas//
   },
-   {
+  {
+    path: 'camera',
+    loadChildren: () => import('./pages/camera/camera.module').then( m => m.CameraPageModule),
+  },
+  {
+    path: 'maps',
+    loadChildren: () => import('./pages/maps/maps.module').then( m => m.MapsPageModule),
+  },
+
+  {
     path: '**',
     loadChildren: () => import('./pages/not-found/not-found.module').then( m => m.NotFoundPageModule)
   },

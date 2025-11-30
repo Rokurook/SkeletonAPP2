@@ -36,6 +36,18 @@ async goToPago() {
   await this.router.navigate(['/pago']);
 }
 
+async goToCamera() {
+  await this.menu.close(); // o await this.menu.close('mainMenu')
+  // ahora navega
+  await this.router.navigate(['/camera']);
+}
+
+async goToMaps() {
+  await this.menu.close(); // o await this.menu.close('mainMenu')
+  // ahora navega
+  await this.router.navigate(['/maps']);
+}
+
   cerrarSesion(){
     localStorage.removeItem('usuarioActivo');
     console.log('Sesión cerrada');

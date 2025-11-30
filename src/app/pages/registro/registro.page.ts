@@ -65,7 +65,4 @@ async presentAlert(message: string) {
       });
   }
 
-
-
-
 }

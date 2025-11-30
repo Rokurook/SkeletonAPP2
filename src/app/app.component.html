@@ -33,6 +33,18 @@
           <ion-label>Pagar producto</ion-label>
         </ion-item>
 
+        <!-- camera -->
+        <ion-item button (click)="goToCamera()">
+          <ion-icon name="camera-outline" slot="start"></ion-icon>
+          <ion-label>Tomar foto</ion-label>
+        </ion-item>
+
+        <!-- maps -->
+        <ion-item button (click)="goToMaps()">
+          <ion-icon name="map-outline" slot="start"></ion-icon>
+          <ion-label>Ver ubicacion</ion-label>
+        </ion-item>
+
 
         <!--cierre sesion-->
         <ion-item button (click)="cerrarSesion()">
