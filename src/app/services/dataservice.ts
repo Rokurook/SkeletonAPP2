@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import {SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx'; // importar en app.modules.ts
+import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx'; // importar en app.modules.ts
 import { ToastController } from '@ionic/angular';
-import { BehaviorSubject } from 'rxjs'; //permite hacer transacciones eb BD 
-
-
+import { BehaviorSubject } from 'rxjs';
 
 
 @Injectable({
@@ -13,16 +11,17 @@ export class Dataservice {
 
   public db!: SQLiteObject;
 
-   // observable, permite ver si la BD esta lista para uso 
+  // observable
   private isDBReady: BehaviorSubject<boolean> = new BehaviorSubject(false); 
 
   constructor(private sqlite: SQLite, private toastController: ToastController) { 
     this.initDatabase();  
-}
+  }
 
-  private initDatabase() {
+
+    private initDatabase() {
     this.sqlite.create({
-      name: 'Mydata.db',
+      name: 'mydata.db',
       location: 'default'
     }).then((db: SQLiteObject) => { 
       
@@ -35,7 +34,8 @@ export class Dataservice {
     }).catch(error => this.presentToast('Error al insertar usuario:'+ error));
   }
 
-    private createTables() {
+
+  private createTables() {
     this.db.executeSql(
       `CREATE TABLE IF NOT EXISTS usuarios (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -48,7 +48,8 @@ export class Dataservice {
       )`, [])
       .then(() => this.presentToast('Tabla created'))
       .catch(error => this.presentToast('Error creando tabla' + error));
-  } 
+  }
+
 
     insertUsuario(nombre: string, apellido: string, usuario: string, password: string, selectedOption: string, selectedDate: string) {
     return this.db.executeSql(`
@@ -58,6 +59,7 @@ export class Dataservice {
     .catch(error => this.presentToast('Error al insertar usuario:'+ error));
   }
 
+  
   validarUsuario(usuario: string, password: string) {
     return this.db.executeSql('SELECT * FROM usuarios WHERE usuario = ? AND password = ?', [usuario, password])
       .then((res) => {
@@ -69,10 +71,7 @@ export class Dataservice {
       })
       .catch(error =>  this.presentToast('Error al obtener usuario :' + error));
   }
- 
-
-
-
+  
     private async presentToast(message: string) {
     const toast = await this.toastController.create({
       message: message,
@@ -82,4 +81,5 @@ export class Dataservice {
   }
 
 
+  
 }

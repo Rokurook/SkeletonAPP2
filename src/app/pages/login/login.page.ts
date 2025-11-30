@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
-import { Dataservice } from '../../services/dataservice';
+import { Dataservice } from 'src/app/services/dataservice';
 
 
 @Component({
@@ -15,7 +15,9 @@ export class LoginPage  {
   email:string = '';
   password: string='';
 
-    constructor(private navCtrl: NavController, private alertController: AlertController, private dataService: Dataservice) { }
+    constructor(private navCtrl: NavController, 
+                private alertController: AlertController, 
+                private dataService: Dataservice) { }
 
 
   //funsión necesita libreria / ademas de definir como objeto privado dentro del contructor / Método para mostrar alerta de error
@@ -95,7 +97,7 @@ validarEmail(email: string): boolean {
 
     // despues
   registro() {
-     this.navCtrl.navigateForward(['/registro']);
+    this.navCtrl.navigateForward(['/registro']);
   }
 
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular'; 
 import { AlertController } from '@ionic/angular'; 
 import { FormatearFechaPipe } from '../../pipes/formatear-fecha-pipe';
-import { Dataservice } from '../../services/dataservice';
+import { Dataservice } from 'src/app/services/dataservice';
 
 
 
@@ -16,12 +16,13 @@ export class RegistroPage implements OnInit {
 
   nombre: any='';
   apellido: any='';
-  selectedOption: any=''; // nivel de estudios aqui va el nivel de estudio
+  nivelEstudios: any=''; // nivel de estudios aqui va el nivel de estudio
   selectedDate: any='';
   usuario: any='';
   password: any='';
 
-  constructor(private alertController: AlertController, private menu: MenuController, 
+  constructor(private alertController: AlertController, 
+              private menu: MenuController, 
               private formatearFechaPipe:FormatearFechaPipe,
               private dataService: Dataservice) { }
 
@@ -53,7 +54,7 @@ async presentAlert(message: string) {
   }*/
 
   guardarDatos() {
-    this.dataService.insertUsuario(this.nombre, this.apellido, this.usuario, this.password, this.selectedOption, this.selectedDate)
+    this.dataService.insertUsuario(this.nombre, this.apellido, this.usuario, this.password, this.nivelEstudios, this.selectedDate)
       .then(() => {
         this.presentAlert('Datos guardados exitosamente');
         // Aquí puedes añadir lógica adicional, como mostrar un mensaje de éxito al usuario.
