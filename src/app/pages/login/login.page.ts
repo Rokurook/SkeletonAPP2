@@ -62,7 +62,7 @@ export class LoginPage  {
     const logged = await this.dataService.validarUsuario(this.email, this.password);
 
     if (logged) {
-      localStorage.setItem('sesion_iniciada', 'true');
+      localStorage.setItem('usuarioActivo', 'true');
       this.navCtrl.navigateForward(['/home'], {
         queryParams: { email: this.email }
       });

@@ -58,7 +58,7 @@ export class Dataservice {
   insertUsuario(
     nombre: string, 
     apellido: string, 
-    usuario: string, 
+    email: string, 
     password: string, 
     nivelEstudios: string, 
     selectedDate: string
@@ -72,7 +72,7 @@ export class Dataservice {
     return this.db.executeSql(query, [
       nombre,
       apellido,
-      usuario,
+      email,
       password,
       nivelEstudios,
       selectedDate
@@ -81,16 +81,16 @@ export class Dataservice {
     .catch(error => this.presentToast('Error al insertar usuario: ' + error));
   }
 
-  validarUsuario(usuario: string, password: string) {
+  validarUsuario(email: string, password: string) {
 
-    console.log("VALIDANDO USUARIO:", usuario, password);
+    console.log("VALIDANDO USUARIO:", email, password);
 
     const query = `
       SELECT * FROM usuarios 
       WHERE email = ? AND password = ?
     `;
 
-    return this.db.executeSql(query, [usuario, password])
+    return this.db.executeSql(query, [email, password])
       .then(res => {
 
         console.log("SELECT ejecutado. Filas encontradas:", res.rows.length);
