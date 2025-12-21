@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from '@ionic/angular';
-/*import { Dataservice } from 'src/app/services/dataservice';*/
+import { Dataservice } from 'src/app/services/dataservice';
 
 @Component({
   selector: 'app-login',
@@ -16,9 +16,8 @@ export class LoginPage  {
   constructor(
     private navCtrl: NavController,
     private alertController: AlertController,
-    ) {}
-  //private dataService: Dataservice
-
+    private dataService: Dataservice) {}
+  
   // Método para mostrar alerta
   async mostrarAlerta(mensaje: string) {
     const alert = await this.alertController.create({
@@ -58,17 +57,17 @@ export class LoginPage  {
       return;
     }
 
-
+    /*
     localStorage.setItem('usuarioActivo', 'true');
 
     this.navCtrl.navigateForward(['/home'], {
     queryParams: {
       email: this.email
     }
-    });
+    });*/
 
     // Validación en BD
-    /*const logged = await this.dataService.validarUsuario(this.email, this.password);
+    const logged = await this.dataService.validarUsuario(this.email, this.password);
 
     if (logged) {
       localStorage.setItem('usuarioActivo', 'true');
@@ -77,7 +76,7 @@ export class LoginPage  {
       });
     } else {
       this.mostrarAlerta('No existe el usuario en la base de datos');
-    }*/
+    }
 
 }   
   // Ir a registro
